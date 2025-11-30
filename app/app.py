@@ -47,3 +47,11 @@ def hello(name: str = "world"):
 def metrics():
     data = generate_latest()
     return Response(content=data, media_type=CONTENT_TYPE_LATEST)
+
+@app.get("/")
+def root():
+    return {
+        "message": "DevOps Observability Demo is running",
+        "endpoints": ["/health", "/hello", "/metrics"]
+    }
+
